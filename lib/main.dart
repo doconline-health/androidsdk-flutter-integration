@@ -98,22 +98,30 @@ class _MyHomePageState extends State<MyHomePage> {
               _isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : ElevatedButton(
-                onPressed: _goToDocOnlineSdk(""),
+                onPressed: (){
+                  _goToDocOnlineSdk("");
+                },
                 child: const Text('Go to DocOnline SDK'),
               ),
 
               ElevatedButton(
-                onPressed: _goToDocOnlineSdk("consultation"),
+                onPressed:(){
+              _goToDocOnlineSdk("consultation");
+              },
                 child: const Text('Book a consultation'),
               ),
 
               ElevatedButton(
-                onPressed: _goToDocOnlineSdk("diagnostics"),
+                onPressed:(){
+              _goToDocOnlineSdk("diagnostics");
+              },
                 child: const Text('Diagnostics'),
               ),
 
               ElevatedButton(
-                onPressed: _goToDocOnlineSdk("pharmacy"),
+                onPressed: (){
+                  _goToDocOnlineSdk("pharmacy");
+              },
                 child: const Text('Buy Medicine'),
               ),
 
@@ -145,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  void _goToDocOnlineSdk(String type) async {
+  Future<void> _goToDocOnlineSdk(String type) async {
     setState(() {
       _isLoading = true;
     });
