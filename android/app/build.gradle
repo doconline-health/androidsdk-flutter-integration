@@ -48,14 +48,13 @@ android {
 }
 
 dependencies {
-    implementation ("com.gitlab.doconline-android:library:0.0.27") {
+    implementation ("com.gitlab.doconline-android:library:x.x.x") {
         exclude group: 'io.flutter', module: 'flutter_embedding_release'
     }
     implementation "androidx.appcompat:appcompat:1.7.1"
  /*   implementation "com.google.android.material:material:1.9.0"*/
     /*implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"*/
     implementation 'com.google.android.gms:play-services-base:18.2.0'
-    implementation "com.github.bumptech.glide:glide:4.16.0"
 }
 
 /*configurations.all {

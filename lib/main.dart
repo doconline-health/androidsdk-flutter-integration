@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+//Sample Text Fields
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _middleNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -98,8 +98,23 @@ class _MyHomePageState extends State<MyHomePage> {
               _isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : ElevatedButton(
-                onPressed: _goToDocOnlineSdk,
+                onPressed: _goToDocOnlineSdk(""),
                 child: const Text('Go to DocOnline SDK'),
+              ),
+
+              ElevatedButton(
+                onPressed: _goToDocOnlineSdk("consultation"),
+                child: const Text('Book a consultation'),
+              ),
+
+              ElevatedButton(
+                onPressed: _goToDocOnlineSdk("diagnostics"),
+                child: const Text('Diagnostics'),
+              ),
+
+              ElevatedButton(
+                onPressed: _goToDocOnlineSdk("pharmacy"),
+                child: const Text('Buy Medicine'),
               ),
 
               const SizedBox(height: 25),
@@ -130,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  Future<void> _goToDocOnlineSdk() async {
+  void _goToDocOnlineSdk(String type) async {
     setState(() {
       _isLoading = true;
     });
@@ -156,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
       debugPrint("API RESPONSE: $apiResponse");
       if (apiResponse != null) {
         if (apiResponse.responseCode == 200) {
-          await DocOnlineSDKLauncher.openDocOnlineSdk(requestData, apiResponse.responseBody);
+          await DocOnlineSDKLauncher.openDocOnlineSdk(requestData, apiResponse.responseBody,type);
         } else {
           final Map<String, dynamic> jsonError = apiResponse.responseBody;
           final String message = jsonError['message']?.toString() ?? "An unknown error occurred";

@@ -8,10 +8,10 @@ allprojects {
             name 'Google'
         }
         maven {
-            url 'https://gitlab.com/api/v4/groups/124995410/-/packages/maven'
+            url 'https://gitlab.com/api/v4/groups/{PROJECT_ID}/-/packages/maven'
             credentials {
-                username = "gitlab+deploy-token-12503766"
-                password = "gldt-LCLRzdWKmqALg_qCHaNK" // or CI_JOB_TOKEN
+                username = "gitlab-username"
+                password = "gldt-sameple_token"
             }
         }
            /* maven {
@@ -20,19 +20,6 @@ allprojects {
         }
     }
 
-
-/*buildscript {
-    ext.kotlin_version = '1.8.22'   // make sure this matches a stable Kotlin version
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        //classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0'
-    }
-}*/
 
 rootProject.buildDir = "../build"
 subprojects {
@@ -46,27 +33,3 @@ tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
 
-/*dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        //mavenLocal()
-        *//*google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }*//*
-        maven {
-            url 'https://gitlab.com/api/v4/groups/124995410/-/packages/maven'
-            credentials {
-                username = "gitlab+deploy-token-12503766"
-                password = "gldt-LCLRzdWKmqALg_qCHaNK" // or CI_JOB_TOKEN
-            }
-        }
-       *//* maven {
-            url 'https://storage.googleapis.com/download.flutter.io'
-        }*//*
-
-    }
-}*/

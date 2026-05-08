@@ -19,6 +19,7 @@ class MainActivity: FlutterActivity(){
 
                     val requestObject = call.argument<String>("requestObject")
                     val responseObject = call.argument<String>("responseObject")
+                    val type = call.argument<String>("type")
 
                     SplashScreenActivity.start(
                         this,
@@ -26,7 +27,7 @@ class MainActivity: FlutterActivity(){
                         responseObject,
                         Constants.STAGING_BUILD_TYPE,
                         Constants.DOCONLINE_THEME,
-                        ""
+                        type
                     )
 
                     result.success(null)
